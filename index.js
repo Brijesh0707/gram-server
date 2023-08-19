@@ -27,17 +27,17 @@ mongoose.connection.on("connected", () => {
   console.log("DATABASE CONNECTED OK");
 });
 
-// Serve static assets from the build folder
-app.use(express.static(path.join(__dirname, "front", "build")));
+// // Serve static assets from the build folder
+// app.use(express.static(path.join(__dirname, "front", "build")));
 
-// Send the index.html file for any other routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "front", "build", "index.html"), function (err) {
-    if (err) {
-      res.status(500).send(err);
-    }
-  });
-});
+// // Send the index.html file for any other routes
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "front", "build", "index.html"), function (err) {
+//     if (err) {
+//       res.status(500).send(err);
+//     }
+//   });
+// });
 
 mongoose.connection.on("error", (err) => {
   console.error("DATABASE CONNECTION ERROR:", err);
